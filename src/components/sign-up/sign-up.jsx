@@ -14,6 +14,10 @@ class SignUp extends React.Component {
       confirmPassword: "",
     };
   }
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
   handleSubmit = async (event) => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
@@ -37,10 +41,7 @@ class SignUp extends React.Component {
       console.log(error);
     }
   };
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
